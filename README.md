@@ -9,14 +9,9 @@
 | password          | string    | null: false |
 | first_name        | string    | null: false |
 | family_name       | string    | null: false |
-| first_name_kana   | string    | null: false |
-| family_name_kana  | string    | null: false |
-| birth_day         | date      | null: false |
-| introduction      | text      |             |
-| users             |references | null: false |
+
 ### Association
 
-- has_many :destinations
 - has_many :transactions
 - has_many :items
 
@@ -39,12 +34,11 @@
 
 | Column           | Type       | Options      |
 | ------           | ---------- | ------------ |
-| post_code        | string     | null: false  |
-| prefectures      | string     | null: false  |
-| city             | string     | null: false  |
-| house_number     | string     | null: false  |
-| building_name    | string     |              |
-| telephone_number | string     | unique: true |
+| post_code        | references | null: false  |
+| city             | references | null: false  |
+| house_number     | references | null: false  |
+| building_name    | references |              |
+| telephone_number | references | unique: true |
 | users            | references | null: false  |
 ### Association
 
@@ -54,7 +48,6 @@
 
 | Column            | Type      | Options     |
 | -------           | ----------| ----------- |
-| name              | string    | null: false |
 | introduction      | text      | null: false |
 | price             | integer   | null: false |
 | item_image_id     | integer   | null: false |
@@ -62,6 +55,7 @@
 | shipping_date     | integer   | null: false |
 | category_id       | integer   | null: false |
 | shipping_location | integer   | null: false |
+| users             | references| null: false |
 
 ### Association
 
