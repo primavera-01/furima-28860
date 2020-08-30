@@ -17,16 +17,12 @@
 - has_many :transactions
 - has_many :items
 
-## transaction テーブル
+## item_purchases テーブル
 
 | Column            | Type      | Options     |
 | ------            | --------- | ----------- |
 | users             | string    | null: false |
-| category          | string    | null: false |
-| item_condition    | string    | null: false |
-| shipping_charge   | string    | null: false |
-| consignor         | string    | null: false |
-| shipping_date     | string    | null: false |
+| item_id           | string    | null: false |
 
 ### Association
 
@@ -34,7 +30,7 @@
 
 ## destination テーブル
 
-| Column           | Type       | Options      |
+| Column           | Type      | Options      |
 | ------           | ---------- | ------------ |
 | post_code        | string     | null: false  |
 | city             | string     | null: false  |
@@ -42,6 +38,7 @@
 | building_name    | string     |              |
 | telephone_number | string     | unique: true |
 | users            | references | null: false  |
+
 ### Association
 
 - has_many :users
