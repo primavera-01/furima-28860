@@ -14,7 +14,7 @@
 | birth_day         | date      | null: false |
 ### Association
 
-- has_many :item_purchase
+- has_many :item_purchases
 - has_many :items
 
 ## item_purchases テーブル
@@ -22,27 +22,29 @@
 | Column            | Type      | Options                      |
 | ------            | --------- | -----------                  |
 | user              | references| null: false foreign_key: true|
-| id           | string    | null: false                  |
+| item              | references| null: false foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :destination
+- has_many :  item_purchases
+- belongs_to :item_purchase
 
 ## destination テーブル
 
 | Column           | Type      | Options       |
 | ------           | ---------- | ------------ |
+| prefecture       | integer    | null:false   |
 | post_code        | string     | null: false  |
 | city             | string     | null: false  |
 | house_number     | string     | null: false  |
 | building_name    | string     |              |
 | telephone_number | string     | unique: true |
-| user             | references | null: false  |
+| item_purchase    | references | null: false  |
 
 ### Association
 
-- has_many :item_purchases
+- belongs_to :item_purchase
 
 ## items テーブル
 
@@ -61,4 +63,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item_purchase
+- has_one    :item_purchase
