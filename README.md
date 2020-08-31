@@ -27,8 +27,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :  item_purchases
-- belongs_to :item_purchase
+- belongs_to :destination
 
 ## destination テーブル
 
