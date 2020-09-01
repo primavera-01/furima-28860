@@ -1,24 +1,66 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column            | Type      | Options     |
+| --------          | --------- | ----------- |
+| nickname          | string    | null: false |
+| email             | string    | null: false |
+| password          | string    | null: false |
+| first_name        | string    | null: false |
+| family_name       | string    | null: false |
+| first_name_kana   | string    | null: false |
+| family_name_kana  | string    | null: false |
+| birth_day         | date      | null: false |
+### Association
 
-* Ruby version
+- has_many :item_purchases
+- has_many :items
 
-* System dependencies
+## item_purchases テーブル
 
-* Configuration
+| Column            | Type      | Options                      |
+| ------            | --------- | -----------                  |
+| user              | references| null: false foreign_key: true|
+| item              | references| null: false foreign_key: true|
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
+- has_one :destination
+- belongs_to :item
 
-* How to run the test suite
+## destination テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column           | Type      | Options       |
+| ------           | ---------- | ------------ |
+| prefecture       | integer    | null:false   |
+| post_code        | string     | null: false  |
+| city             | string     | null: false  |
+| house_number     | string     | null: false  |
+| building_name    | string     |              |
+| telephone_number | string     | unique: true |
+| item_purchase    | references | null: false  |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :item_purchase
+
+## items テーブル
+
+| Column            | Type      | Options                      |
+| ------------------| ----------| ---------------------------  |
+| name              | string    | null:false                   |
+| introduction      | text      | null: false                  |
+| price             | integer   | null: false                  |
+| image_id          | integer   | null: false                  |
+| condition         | integer   | null: false                  |
+| shipping_date     | integer   | null: false                  |
+| category_id       | integer   | null: false                  |
+| shipping_location | integer   | null: false                  |
+| user              | references| null: false foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- has_one    :item_purchase
