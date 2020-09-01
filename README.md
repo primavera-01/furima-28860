@@ -27,7 +27,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :destination
+- has_one :destination
 - belongs_to :item
 
 ## destination テーブル
