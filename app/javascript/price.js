@@ -8,4 +8,4 @@ function itemCalculation() {
     itemProfit.innerHTML = Math.floor(number * 0.9);
   });
 }
-window.addEventListener("load", itemCalculation);
+window.addEventListener("load", itemCalculation)

@@ -18,8 +18,8 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :name
-    validates :introduction
+    validates :name,length: {maximum:40}
+    validates :introduction,length: {maximum:1000}
     validates :image
   end
   
