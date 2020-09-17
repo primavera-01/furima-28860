@@ -14,10 +14,10 @@
 | birth_day         | date      | null: false |
 ### Association
 
-- has_many :item_purchases
+- has_many :orders
 - has_many :items
 
-## item_purchases テーブル
+## orders テーブル
 
 | Column            | Type      | Options                      |
 | ------            | --------- | -----------                  |
@@ -40,11 +40,11 @@
 | house_number     | string     | null: false  |
 | building_name    | string     |              |
 | telephone_number | string     | unique: true |
-| item_purchase    | references | null: false  |
+| order            | references | null: false  |
 
 ### Association
 
-- belongs_to :item_purchase
+- belongs_to :order
 
 ## items テーブル
 
@@ -63,4 +63,4 @@
 ### Association
 
 - belongs_to :user
-- has_one    :item_purchase
+- has_one    :order
