@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = OrdersDestination.new(order_params)
-    if @order.valid?
+    if @order.valid? && @order.save
       pay_item
       @order.save
       return redirect_to root_path
