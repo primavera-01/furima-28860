@@ -13,6 +13,8 @@ class OrdersDestination
     validates :house_number
     validates :telephone_number, format: { with: NUMBER_DIFFERENT, message: 'is invalid. Include 10-11' }
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
 
